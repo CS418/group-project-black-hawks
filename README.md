@@ -1,9 +1,9 @@
 ## Table of Contents
-1. [Dataset](#dataset)
+1. [Dataset Overview](#dataset)
 2. [Author(s)](#author)
-3. [Dataset description](#description)
+3. [Dataset Description](#description)
 
-#Dataset
+# Dataset Overview
 
 Airbnb is one of the most popular ways to find a place to stay in most major cities around the world. It has significantly altered the traditional method of locating accommodations for both short and long-term stays. we'd like to focus on the following issues that have been raised:
 
@@ -20,6 +20,6 @@ This project's results will assist businesses in narrowing their target marketin
 3. Muhammed Adeem Shaik
 
 
-#Dataset description
+# Dataset description
 
 
