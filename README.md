@@ -1,5 +1,5 @@
 ## Table of Contents
-1. [Dataset Overview](#dataset)
+1. [Dataset](#dataset)
 2. [Author(s)](#author)
 3. [Dataset description](#description)
 
