@@ -165,3 +165,5 @@ for a in A:
     airbnb_listings_clean[a] = airbnb_listings_clean['amenities'].apply(lambda A: 1 if a in A else 0)
 airbnb_listings_clean = airbnb_listings_clean.drop(['amenities'],axis=1)
 airbnb_listings_clean.describe()
+airbnb_reviews.isna().sum().sort_values(ascending=False)
+airbnb_calendar.isna().sum().sort_values(ascending=False)
