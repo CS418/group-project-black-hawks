@@ -96,3 +96,6 @@ missing_threshold = 4
 airbnb_listings_clean.shape
 airbnb_listings_clean = airbnb_listings_clean[airbnb_listings_clean['Missing_num']<=missing_threshold].drop('Missing_num', axis = 1)
 airbnb_listings_clean.shape
+missing_threshold = 4
+airbnb_listings_clean = airbnb_listings_clean[airbnb_listings_clean['Missing_num']<=missing_threshold].drop('Missing_num', axis = 1)
+airbnb_listings_clean.shape
