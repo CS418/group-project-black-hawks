@@ -11,6 +11,7 @@ airbnb_reviews.head(5)
 airbnb_reviews.info()
 airbnb_reviews.shape
 airbnb_reviews.describe()
+airbnb_calendar_date = pd.read_csv("calendar.csv")
 airbnb_calendar = pd.read_csv("calendar.csv")
 airbnb_calendar.head(5)
 airbnb_calendar.info()
@@ -167,3 +168,29 @@ airbnb_listings_clean = airbnb_listings_clean.drop(['amenities'],axis=1)
 airbnb_listings_clean.describe()
 airbnb_reviews.isna().sum().sort_values(ascending=False)
 airbnb_calendar.isna().sum().sort_values(ascending=False)
+
+airbnb_calendar.info()
+airbnb_calendar.dtypes()
+airbnb_calendar['date'] = pd.to_datetime(airbnb_calendar['date'])
+airbnb_calendar['price'] = airbnb_calendar['price'].str.replace(',', '')
+airbnb_calendar['price'] = airbnb_calendar['price'].str.replace('$', '')
+airbnb_calendar['price'] = airbnb_calendar['price'].astype(float)
+airbnb_calendar['date'] = pd.to_datetime(airbnb_calendar['date'])
+airbnb_calendar['date'] = airbnb_calendar['date'].dt.strftime('%B')
+
+import plotly.express as px
+temp=px.histogram(airbnb_calendar,x="date", y="price")
+temp.show()
+
+airbnb_calendar_date['date'] = pd.to_datetime(airbnb_calendar_date['date'])
+airbnb_calendar_date['price'] = airbnb_calendar_date['price'].str.replace(',', '')
+airbnb_calendar_date['price'] = airbnb_calendar_date['price'].str.replace('$', '')
+airbnb_calendar_date['price'] = airbnb_calendar_date['price'].astype(float)
+airbnb_calendar_date['date'] = pd.to_datetime(airbnb_calendar_date['date'])
+airbnb_calendar_date['date'] = airbnb_calendar_date['date'].dt.strftime('%d')
+
+temp=px.histogram(airbnb_calendar,x="date", y="price")
+temp.show()
+
+
+
