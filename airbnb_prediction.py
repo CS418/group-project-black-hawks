@@ -116,3 +116,52 @@ def oneHot(feat, data):
     data.drop(feat, axis=1, inplace=True)
     data = pd.concat([data, cur_dummies], axis=1)
     return data
+features = []
+conts = []
+for col_name in airbnb_listings_clean.columns:
+    if airbnb_listings_clean[col_name].dtype == np.float:
+        print('{} is a continous varibale'.format(col_name))
+        # 
+        conts.append(col_name)
+    elif len(airbnb_listings_clean[col_name].value_counts()) <= 5:
+        data_clean = oneHot(col_name, airbnb_listings_clean)
+    else:
+        features.append(col_name)
+print(conts)
+print(features)
+airbnb_listings_clean['host_since'].head()
+airbnb_listings_clean['host_since'] = airbnb_listings_clean['host_since'].map(lambda date: 2022- int(date[-4:]), na_action='ignore')
+airbnb_listings_clean['host_since'].value_counts()
+airbnb_listings_clean = oneHot('host_since', airbnb_listings_clean)
+airbnb_listings_clean['neighbourhood_cleansed'].value_counts()
+airbnb_listings_clean = oneHot('neighbourhood_cleansed', airbnb_listings_clean)
+airbnb_listings_clean['property_type'].value_counts()
+airbnb_listings_clean = oneHot('property_type', airbnb_listings_clean)
+airbnb_listings_clean['accommodates'].value_counts()
+airbnb_listings_clean = oneHot('accommodates', airbnb_listings_clean)
+airbnb_listings_clean['amenities'][0]
+amenities_list = list(data_clean.amenities)
+amenities_list_string = " ".join(amenities_list)
+amenities_list_string = amenities_list_string.replace('{', '')
+amenities_list_string = amenities_list_string.replace('}', ',')
+amenities_list_string = amenities_list_string.replace('[', '')
+amenities_list_string = amenities_list_string.replace(']', ',')
+amenities_list_string = amenities_list_string.replace('"', '')
+amenities_list_string = amenities_list_string.replace("'", "")
+amenities_set = [x.strip() for x in amenities_list_string.split(',')]
+amenities_set
+mydict = {}
+for word in amenities_set:
+    if word in mydict:
+        mydict[word] += 1
+    else:
+        mydict[word] = 1       
+print(mydict)
+threshold = 500
+A = {k:v for (k,v) in mydict.items() if v > threshold }
+A = list(A.keys())
+
+for a in A:
+    airbnb_listings_clean[a] = airbnb_listings_clean['amenities'].apply(lambda A: 1 if a in A else 0)
+airbnb_listings_clean = airbnb_listings_clean.drop(['amenities'],axis=1)
+airbnb_listings_clean.describe()
