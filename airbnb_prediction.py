@@ -1,5 +1,11 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import plotly.express as px
+from sklearn import linear_model
+from sklearn.metrics import mean_squared_error, r2_score
+import time
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
 
 airbnb_listings = pd.read_csv("listings.csv")
 airbnb_listings.head(5)
@@ -178,7 +184,7 @@ airbnb_calendar['price'] = airbnb_calendar['price'].astype(float)
 airbnb_calendar['date'] = pd.to_datetime(airbnb_calendar['date'])
 airbnb_calendar['date'] = airbnb_calendar['date'].dt.strftime('%B')
 
-import plotly.express as px
+
 temp=px.histogram(airbnb_calendar,x="date", y="price")
 temp.show()
 
@@ -192,5 +198,38 @@ airbnb_calendar_date['date'] = airbnb_calendar_date['date'].dt.strftime('%d')
 temp=px.histogram(airbnb_calendar,x="date", y="price")
 temp.show()
 
+x_col = dropping_column(airbnb_listings_clean, 'price')
+y_col = airbnb_listings_clean['price']
+
+X_train, X_test, y_train, y_test = train_test_split(x_col, y_col, test_size=0.2, random_state=135)
+
+hpm_regression_start = time.time()
+
+hpm_regression = LinearRegression()  
+hpm_regression.fit(X_train, y_train) #training the algorithm
 
 
+training_preds_hpm_regression = hpm_regression.predict(X_train)
+val_preds_hpm_regression = hpm_regression.predict(X_test)
+
+hpm_regression_end = time.time()
+
+print(f"Time taken to run: {round((hpm_regression_end - hpm_regression_start)/60,1)} minutes")
+print("\nTraining RMSE:", round(mean_squared_error(y_train, training_preds_hpm_regression),4))
+print("Validation RMSE:", round(mean_squared_error(y_test, val_preds_hpm_regression),4))
+print("\nTraining r2:", round(r2_score(y_train, training_preds_hpm_regression),4))
+print("Validation r2:", round(r2_score(y_test, val_preds_hpm_regression),4))
+
+y_test_array = np.array(list(y_test))
+val_preds_hpm_reg_array = np.array(val_preds_hpm_reg)
+hpm_df = pd.DataFrame({'Actual': y_test_array.flatten(), 'Predicted': val_preds_hpm_reg_array.flatten()})
+hpm_df
+
+actual_values = y_test
+plt.scatter(val_preds_hpm_reg, actual_values, alpha=.7,
+            color='r') #alpha helps to show overlapping data
+
+plt.xlabel('Predicted Price')
+plt.ylabel('Actual Price')
+plt.title('SHP Regression Model')
+plt.show()
