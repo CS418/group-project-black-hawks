@@ -110,3 +110,9 @@ airbnb_listings_clean['beds'].fillna(airbnb_listings_clean['beds'].median(), inp
 airbnb_listings_clean['host_acceptance_rate'].fillna(airbnb_listings_clean['host_acceptance_rate'].median(), inplace=True)
 airbnb_listings_clean.isnull().sum()
 airbnb_listings_clean.isnull().sum()
+def oneHot(feat, data):
+    print('Ecoding {} as one-hot..'.format(feat))
+    cur_dummies = pd.get_dummies(data[feat], prefix=feat)
+    data.drop(feat, axis=1, inplace=True)
+    data = pd.concat([data, cur_dummies], axis=1)
+    return data
