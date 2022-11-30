@@ -49,5 +49,8 @@ Data cleaning is the process of fixing or removing incorrect, corrupted, incorre
 -> Only "neighbourhood cleansed" is required as a feature of home location, which allowed us to eliminate other columns that are related to location.  
 -> Identified and eliminated all the duplicate columns and rows.  
 
-![screen shot](Screen Shot 2022-11-30 at 4.43.34 PM.png)
+<img width="535" alt="Screen Shot 2022-11-30 at 4 43 34 PM" src="https://user-images.githubusercontent.com/89613198/204924958-08762063-4031-4b34-87c9-78c6e6e60b9e.png">
 
+
+
+<img width="992" alt="Screen Shot 2022-11-30 at 4 50 26 PM" src="https://user-images.githubusercontent.com/89613198/204925092-db0712a4-b64d-43ba-81f9-624097a82b14.png">
