@@ -44,10 +44,8 @@ minimum_nights, maximum_nights and number_of_reviews
 
 Data cleaning is the process of fixing or removing incorrect, corrupted, incorrectly formatted, duplicate, or incomplete data within a dataset.
 
--> Dropped the columns which were not informative such as id and name for our price prediction.
--> Dropped the columns that were informative but difficult to deal with because they required NLP for further analysis.
--> Only "neighbourhood cleansed" is required as a feature of home location, which allowed us to eliminate other columns that are related to location.
--> Identified and eliminated all the duplicate columns and rows.
-
-
+-> Dropped the columns which were not informative such as id and name for our price prediction.  
+-> Dropped the columns that were informative but difficult to deal with because they required NLP for further analysis.  
+-> Only "neighbourhood cleansed" is required as a feature of home location, which allowed us to eliminate other columns that are related to location.  
+-> Identified and eliminated all the duplicate columns and rows.  
 
