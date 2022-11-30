@@ -65,3 +65,12 @@ Below Timeplot depicts the Seasonal pattern of Airbnb in Chicago which shows hig
 
 Below Timeplot depicts the Seasonal price of Airbnb in Chicago which shows due to the summer, the rental price was less expensive in October 2022 and more expensive from May 2023.  
 <img width="893" alt="Screen Shot 2022-11-30 at 5 02 20 PM" src="https://user-images.githubusercontent.com/89613198/204926620-c6fca138-aa49-40a9-8240-7f562c69de5f.png">
+
+We defined popular homes by using a 70% threshold, plotted it with Bar Plot, and visualized it and you can see them below.
+<img width="949" alt="Screen Shot 2022-11-30 at 5 06 31 PM" src="https://user-images.githubusercontent.com/89613198/204927156-e77c674d-7997-4176-8c9d-c0132d5f54b5.png">
+
+We learned that the following factors had the greatest impact on the rental price:  
+Property type - Entire Rental Unit was preferred more.  
+Host response time - Within an hour was preferred more.  
+Instant bookable - was preferred more  
+<img width="1025" alt="Screen Shot 2022-11-30 at 5 08 14 PM" src="https://user-images.githubusercontent.com/89613198/204927370-3547abf5-9d6e-4053-8ff9-a55c4c44ca2d.png">
