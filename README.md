@@ -83,4 +83,9 @@ Instant bookable - was preferred more
 
 a) XGBoost
 Now that the data preprocessing is over, we can start applying different Supervised Machine Learning models. The evaluation metrics used will be mean squared error and r-squared. Boosting is an ensemble technique where new models are added to correct the errors made by existing models. Models are added sequentially until no further improvements can be made. GBoost (eXtreme Gradient Boosting) is an implementation of gradient boosted decision trees designed for speed and performance. Is a very popular algorithm that has recently been dominating applied machine learning for structured or tabular data.
-### RMSE value – 0.3459
+#### RMSE value – 0.3459
+
+b) Random Forest
+A random forest is a supervised machine learning algorithm that is constructed from decision tree algorithms. It’s more accurate than the decision tree algorithm.
+#### RMSE value – 0.2775
+
