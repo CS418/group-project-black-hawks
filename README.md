@@ -76,3 +76,7 @@ Property type - Entire Rental Unit was preferred more.
 Host response time - Within an hour was preferred more.  
 Instant bookable - was preferred more  
 <img width="1025" alt="Screen Shot 2022-11-30 at 5 08 14 PM" src="https://user-images.githubusercontent.com/89613198/204927370-3547abf5-9d6e-4053-8ff9-a55c4c44ca2d.png">
+
+## Machine Learning Models
+
+1) Predicting the Rental Prices of Airbnb data in chicago
