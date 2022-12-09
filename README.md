@@ -80,3 +80,7 @@ Instant bookable - was preferred more
 ## Machine Learning Models
 
 1) Predicting the Rental Prices of Airbnb data in chicago
+
+a) XGBoost
+Now that the data preprocessing is over, we can start applying different Supervised Machine Learning models. The evaluation metrics used will be mean squared error and r-squared. Boosting is an ensemble technique where new models are added to correct the errors made by existing models. Models are added sequentially until no further improvements can be made. GBoost (eXtreme Gradient Boosting) is an implementation of gradient boosted decision trees designed for speed and performance. Is a very popular algorithm that has recently been dominating applied machine learning for structured or tabular data.
+### RMSE value – 0.3459
